@@ -1,0 +1,30 @@
+textBig: #000;
+textNavbarTitle: #848585;
+textNavbarItem: #3A3F40;
+textNavbarActive: #fff;
+
+default(blue){
+navbarBackground: #E0F4FC;
+navbarActive: #5DC8F0;
+}
+
+green {
+navbarBackground: #F4F8E7;
+navbarActive: #90BD0D;
+}
+
+Orange {
+navbarBackground: #F89302;
+navbarActive: #F89302;
+}
+
+Silver {
+navbarBackground: #F5F5F5;
+navbarActive: #F89302;
+}
+
+Dark {
+contentAreaBackground: #4E4E4E;
+navbarBackground: #363636;
+navbarActive: #5DC8F0;
+}

@@ -1,0 +1,49 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+#themeitem {
+  position: relative;
+  width: 115px; height: 150px;
+
+  display: flex;
+  flex-direction: column;
+
+  > svg {
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+
+  > .label {
+    display: flex;
+    align-items: center;
+
+    font: { size: 13px; weight: 700; }
+    color: $text;
+    cursor: pointer;
+  }
+
+  > .label > .label-circle {
+    position: relative;
+    display: inline-block;
+    width: 12px; height: 12px;
+    margin-right: 5px;
+
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+  > .label.active > .label-circle {
+    border-color: $text;
+
+    &:after {
+      @include absoluteCenter;
+      content: '';
+      display: block;
+      width: 60%; height: 60%;
+      border-radius: 50%;
+      background-color: #5DC8F0;
+    }
+  }
+
+}

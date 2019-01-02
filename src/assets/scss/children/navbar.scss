@@ -1,0 +1,47 @@
+@import '../variables.scss';
+
+#navbar {
+  position: absolute;
+  right: 0; top: 0;
+  min-width: 200px; min-height: 400px;
+
+  padding: 30px 10px 0 0;
+  font-size: 13px;
+
+ > li {
+   padding: 7px 10px;
+   border-radius: 3px;
+   font-size: inherit;
+
+   hr {
+     margin: 10px 0;
+     background-color: #848585;
+
+   }
+ }
+
+ > li.title {
+   text-transform: uppercase;
+   cursor: default;
+   color: $lightgrey;
+ }
+
+ > li.item {
+   font: { weight: normal; }
+   cursor: pointer;
+   color: $text;
+ }
+ > li.item.active {
+   transition:
+   background-color 0.4s ease-in-out,
+   color 0.4s ease-in-out;
+ }
+
+ &.blue > li.item.active { background-color: #5DC8F0; }
+ &.green > li.item.active { background-color: #90BD0D; }
+ &.orange > li.item.active { background-color: #F89302; }
+ &.silver > li.item.active { background-color: #F89302; }
+ &.dark > li.item.active { background-color: #5DC8F0; }
+
+ @media screen and (max-width: 720px){ top: 15px; }
+}

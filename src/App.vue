@@ -1,18 +1,37 @@
 <template>
   <div id="app">
-    <p id="sebin">Sebin Song is doing an experiment with SCSS</p>
+    <button id="opensettings" @click.stop="openModal" >Open Settings</button>
+    <Mainpage />
+    <keep-alive>
+      <Modal v-show="modalOn"
+             @closeModal="closeModal"
+      />
+    </keep-alive>
   </div>
 </template>
 <style lang="scss">
-  @import './assets/scss/App.scss';
+  @import './assets/scss/init.scss';
+  @import './assets/scss/app.scss';
 </style>
 <script>
-import HelloWorld from './components/HelloWorld'
+import Modal from './components/Modal';
+import Mainpage from './components/Mainpage';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: { Modal, Mainpage },
+  data(){
+    return {
+      modalOn: false
+    };
+  },
+  methods: {
+    openModal(){
+      this.modalOn = true;
+    },
+    closeModal(){
+      this.modalOn = false;
+    }
   }
 }
 </script>

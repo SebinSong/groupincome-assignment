@@ -1,0 +1,48 @@
+1) Make the full-screen modal open and close
+(the page where you open it is not very relevant,
+it can just be a blank page with a button that says "Open Settings")
+
+2) Selecting a different color theme should immediately
+change the colors in the screen;
+
+3) The text-size slider should be "slideable",
+but it doesn't need to make it actually change the size of the text
+in the platform — if you choose to do that you will get bonus points if it does well.
+
+4) The root folder of the project should contain a "dist" folder
+ with an index.html file in it that can be opened locally in any browser
+ (Safari, Firefox, and Chrome).
+ It should also contain all of the source files necessary for generating that file.
+
+5) (Optional) Feel free to add micro-interactions or other behaviours
+not described in the exercise/mockups.
+
+< Other information >
+- The font used is Source Sans Pro, in regular and bold;
+
+- The mockup was designed for a screen that is 1440px wide,
+but it should resize appropriately for smaller screens
+(see Discord settings for inspiration)
+
+- We use Font Awesome 5 for all our icons.
+
+- You can find the 5 svg assets attached to this email
+(the theme thumbnail images). These were generated automatically by Figma.
+
+- All applicants will receive this same challenge.
+
+
+
+How submissions will be judged:
+
+Greg (a developer with ~2 decades of experience) will judge your submission and evaluate it based on all of the following criteria:
+
+Quality of the HTML
+Quality of the CSS (or SASS)
+Quality of the JavaScript
+Overall quality of the source code and setup
+Originality
+Simplicity / Elegance
+Correctness
+And any "extra credit" items you chose to do
+Whether you completed this challenge within 2 weeks of receiving this email. (By January 10th, 2019)

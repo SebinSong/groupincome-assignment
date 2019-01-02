@@ -1,0 +1,28 @@
+@import '../variables.scss';
+
+#placeholder {
+  position: absolute;
+  left: 0; top: 0;
+  width: 480px; min-height: 400px;
+
+  padding: 30px 20px 0 20px;
+
+  padding: 30px 0 0 20px;
+
+  .maintitle {
+    font: { size: 24px; weight: bold; }
+    color: $text;
+    margin-bottom: 30px;
+  }
+
+  .logo-text { font-size: 13px; margin-bottom: 15px; }
+
+  @media screen and (max-width: 720px){
+    left: 50%; top: 55px;
+    transform: translateX(-50%);
+  }
+
+  @media screen and (max-width: 480px){
+    width: 100%;
+  }
+}
