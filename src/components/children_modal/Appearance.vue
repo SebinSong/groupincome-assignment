@@ -28,6 +28,7 @@
          }"
       >Text settings</p>
       <Textsettings />
+      
     </section>
 
   </div>

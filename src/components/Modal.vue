@@ -40,10 +40,12 @@
              ref="modalContent"
     >
       <keep-alive>
-        <Appearance v-if="currentPage === 'Appearance'" />
-        <Placeholder v-else
-                     :pageName="currentPage"
-        />
+        <transition name="modalcontent" >
+            <Appearance v-if="currentPage === 'Appearance'" />
+            <Placeholder v-else
+                         :pageName="currentPage"
+            />
+        </transition>
       </keep-alive>
       <div id="content-block" v-if="navbarOn"></div>
     </content>
@@ -84,8 +86,6 @@ export default {
       this.navbarOn = false;
       this.currentPage = goTo;
     }
-  },
-  created(){ console.log('Modal.vue created!'); },
-  mounted(){ console.log('Modal.vue mounted!'); }
+  }
 };
 </script>

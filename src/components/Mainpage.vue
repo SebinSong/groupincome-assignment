@@ -1,54 +1,42 @@
 <template>
-  <div id="mainpage">
-    <div class="planewrapper">
-      <svg xmlns="http://www.w3.org/2000/svg"
-           xmlns:xlink="http://www.w3.org/1999/xlink"
-           class="planesvg"
-           ref="mainbg"
-           >
-           <path id="paperplane" fill="#fff"
-                 d="M31.544,0.16C31.378,0.053,31.189,0,31.001,0c-0.193,0-0.387,0.055-0.555,0.168
-               		l-30,20c-0.309,0.205-0.479,0.566-0.439,0.936c0.038,0.369,0.278,0.688,0.623,0.824l7.824,3.131l3.679,6.438
-               		c0.176,0.309,0.503,0.5,0.857,0.504c0.004,0,0.007,0,0.011,0c0.351,0,0.677-0.186,0.857-0.486l2.077-3.463l9.695,3.877
-               		C25.749,31.977,25.874,32,26.001,32c0.17,0,0.338-0.043,0.49-0.129c0.264-0.148,0.445-0.408,0.496-0.707l5-30
-               		C32.052,0.771,31.878,0.377,31.544,0.16z M3.137,20.777L26.312,5.326L9.462,23.363c-0.089-0.053-0.168-0.123-0.266-0.162
-               		L3.137,20.777z M10.19,24.066c-0.002-0.004-0.005-0.006-0.007-0.01L29.126,3.781L12.977,28.943L10.19,24.066z M25.218,29.609
-               		l-8.541-3.416c-0.203-0.08-0.414-0.107-0.623-0.119L29.206,5.686L25.218,29.609z"/>
-      </svg>
-    </div>
-
-    <div class="cloudwrapper">
-      <svg xmlns="http://www.w3.org/2000/svg"
-           xmlns:xlink="http://www.w3.org/1999/xlink"
-           class="cloudsvg">
-           <path id="cloud" fill="#fff"
-             d="M71.964,32.82c0,11.158-9.079,20.236-20.239,20.236c-1.49,0-2.996-0.174-4.494-0.519c-2.68,4.248-7.35,6.849-12.416,6.849
-             c-6.163,0-11.591-3.83-13.72-9.498c-1.999,0.979-4.188,1.488-6.419,1.488C6.584,51.376,0,44.794,0,36.701
-             c0-8.093,6.584-14.676,14.676-14.676c1.418,0,2.815,0.205,4.167,0.608c1.966-5.986,7.503-10.055,13.924-10.055
-             c3.115,0,6.152,0.998,8.657,2.828c3.12-1.852,6.661-2.828,10.301-2.828C62.885,12.578,71.964,21.658,71.964,32.82z"/>
-      </svg>
-    </div>
-
+  <div id="mainpage"
+       :style="{ backgroundColor: currentColorSet.mainbg }">
+    <svg id="svgbg"
+         ref="mainAnimation" xmlns="http://www.w3.org/2000/svg"
+    >"
+    <rect id="bgrect" x="0" y="0" width="100%" height="100%" fill="none" />
+    <g id="curvepathWrapper">
+      <path id="curvepath" fill="none" stroke="#fff"
+            stroke-linecap="round" />
+    </g>
+    <g id="svgCanvas">
+    </g>
+    </svg>
   </div>
 </template>
 <style lang="scss">
   @import '@/assets/scss/children/mainpage.scss';
 </style>
 <script>
-import bgAnimationSetting from '@/assets/js/mainpageAnimationSetting.js';
+import { bgAnimationSetting, cancelBgAnimation,
+         RestartBgAnimation } from '@/assets/js/mainpageAnimationSetting.js';
 
 export default {
   name: 'Mainpage',
-  data(){
-    return {
-
-    };
+  computed: {
+    currentColorSet(){ return this.$root.$data.state.colorSet; },
+    baseFontSize(){ return this.$root.$data.state.currentBaseFontSize; }
   },
   methods: {
-
+    resizeHandler(){ RestartBgAnimation.call(this); }
   },
   mounted(){
     bgAnimationSetting.call(this);
+    window.addEventListener('resize', this.resizeHandler );
+  },
+  beforeDestroy(){
+    cancelBgAnimation();
+    window.removeEventListener('resize', this.resizeHandler );
   }
 }
 </script>

@@ -7,10 +7,10 @@
     <div class="track">
       <span class="mark _1"></span><span class="mark _2"></span>
       <span class="mark _3"></span><span class="mark _4"></span>
-      <span class="filled"
+      <span ref="filler" class="filled"
             :style="{ backgroundColor: currentColorSet.menuActive }"
       ></span>
-      <span class="object"
+      <span ref="obj" class="object"
             :style="{ backgroundColor: currentColorSet.menuActive }"
             @click.stop.prevent
       ></span>
@@ -47,12 +47,25 @@ export default {
 
     };
   },
+  methods: {
+    moveSliderObject(){
+      const map = {
+        '11px': '2%', "13px": '34%', "15px": '66%', '17px': '98%'
+      };
+
+      this.$refs.obj.style.left = map[ this.baseFontSize ];
+      this.$refs.filler.style.width = map[ this.baseFontSize ];
+    }
+  },
   computed: {
     currentColorSet(){ return this.$root.$data.state.colorSet; },
     baseFontSize(){ return this.$root.$data.state.currentBaseFontSize; },
   },
   mounted(){
     sliderSetting.call(this, this.$refs.slider);
+
+    // make it still remember where it was when it's regenerated.
+    this.moveSliderObject();
   }
 };
 </script>

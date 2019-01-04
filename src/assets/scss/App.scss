@@ -8,25 +8,91 @@
 
   background-color: #fff;
 
-  #opensettings {
-    @include absoluteCenter;
-    @include buttonActive;
+  #main-content {
+
+    @include flexContentAbsoluteCenter;
+
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%; height: auto;
+    min-width: max-content; min-height: max-content;
+    padding: 50px 50px;
+    background-color: #fff;
+
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+    box-shadow: 12px 12px 0px 0px rgba(0,0,0,0.25);
 
     z-index: 1;
 
-    padding: 10px 20px;
-    color: $deeppink;
-    border: 2px solid $deeppink;
+    .textinfo {
+      color: $text;
+      font-size: 15px;
+    }
 
-    font: { size: 18px; weight: bold; }
+    .textinfo > p {
+     margin-bottom: 6px;
+     font-weight: 700;
+     text-shadow: 2px 2px 3px rgba(0,0,0,0.15);
+   }
 
-    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.15);
-    outline: none;
+    .textinfo #themename,
+    .textinfo #fontsize {
+      display: inline-block;
+      margin-left: 5px; margin-top: 6px;
+      padding: 4px 8px;
+      color: #fff;
 
-    &:hover {
-      outline: 1px solid rgba($deeppink, 0.7);
-      outline-offset: 3px;
+      box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.15);
+    }
+
+    #opensettings {
+      @include buttonActive;
+
+      padding: 8px 15px;
+      color: #fff;
+      border: 2px solid $deeppink;
+      margin-right: 25px;
+
+      font: { size: 15px; weight: bold; }
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.15);
+
+      box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.15);
+      outline: none;
+
+      &:hover {
+        outline: 1px solid rgba(#000, 0.2);
+        outline-offset: 3px;
+      }
+
+      @media screen and (max-width: 500px){
+        margin: 0 0 20px -55px;
+      }
+    }
+
+    @media screen and (max-width: 500px){
+      width: 85%;
+      flex-direction: column;
+    }
+    @media screen and (max-width: 380px){
+      min-width: min-content;
     }
   }
 
+}
+
+
+.modaltransition-enter-active {
+  animation: modalIn 0.4s ease-in-out;
+}
+.modaltransition-leave-active {
+  animation: modalOut 0.4s ease-in-out;
+}
+
+@keyframes modalIn {
+  0%{ opacity: 0; } 100%{ opacity: 1; }
+}
+@keyframes modalOut {
+  0%{ opacity: 1; } 100%{ opacity: 0; }
 }

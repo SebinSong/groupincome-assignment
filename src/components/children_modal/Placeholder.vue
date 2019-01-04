@@ -47,6 +47,8 @@ export default {
   data(){
     return {
       requestId: null,
+      timeoutId: null,
+
       animating: false,
       elementsToAnimate: null,
       currentIndex: 0,
@@ -60,6 +62,7 @@ export default {
   props: [ 'pageName' ],
   methods: {
     animatePaths(dom){
+      if(!this.$refs.refPath) return;
 
       const vue = this;
       let pathLength = this.$refs.refPath.getTotalLength();
@@ -101,7 +104,7 @@ export default {
     },
     endlessAnimation(){
 
-      window.setTimeout(()=>{
+      this.timeoutId = window.setTimeout(()=>{
 
         if(this.currentIndex === 0){
           this.initAllElements();
@@ -136,6 +139,8 @@ export default {
     this.initAllElements();
     this.endlessAnimation();
 
-  }
+  },
+
+  beforeDestroy(){ window.clearTimeout(this.timeoutId); }
 };
 </script>
