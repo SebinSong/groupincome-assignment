@@ -27,7 +27,7 @@ https://vimeo.com/140036858 around 15second).
 
 - Project Source-code Structure.
 
-<img src="http://lh3.googleusercontent.com/5aKwAHgNpUwpK_cNUOXiuoGHM9vpuXs4fmU_VjAUZFGLNYcdLwy__nWmcCgm4oN7QLcXdeXovIutUhOEEaCz=w1600-h709-rw"></img>
+![projectcomponentree](https://user-images.githubusercontent.com/17641213/50673511-8dc56580-1021-11e9-8124-16e57dd2f822.jpg)
 
 I thought the core concept to get the required tasks done was using a 'global storage' where each component, regardless of where they are located in the component tree structure, can directly access a needed data. This could be achieved by serveral methods(ex. Javascript session storage etc.) and is particularly what 'Vuex' is designed for. But I thought downloading and installing the whole Vuex package for just a couple of variables wasn't ideal. So I decided to use the simple way that Vue.js documentation details in their website( https://vuejs.org/v2/guide/state-management.html#ad )
 
